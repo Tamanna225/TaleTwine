@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stories</title>
+  <style>
+    body{
+      background-color: black;
+      color: rgb(250, 248, 248);
+      font-family: 'cursive', cursive;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYRAVtHQeYjPOKC5k3R3unP6GNkzo3WuE1Nw&s");
+      
+    }
+    
+    a:hover {
+      text-decoration: none;
+      
+    }
+    .boxy {
+      background-color: rgba(45, 45, 49, 0.442);
+      border: white 1px solid;
+      border-radius: 10px;
+      /*background-image: url("https://marketplace.canva.com/EAE6eTvKMGY/1/0/900w/canva-instagram-story-background-yrg7CjIFPkE.jpg");*/
+      
+    }
+    .boxy:hover{
+      transform: scale(1.01);
+    }
+    .heading{
+      font-size: 100px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .texty{
+      color: white;
+    }
+    .heady{
+      color: rgb(71, 165, 205);
+    }
+    .yours{
+      float: inline-end;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Stories</h1>
+
+    <% articles.forEach(article => { %>
+      <a href="/articles/<%= article.slug %>">
+      <div class="card mt-4 boxy">
+        <div class="card-body ">
+          <% if (currentUserEmail === article.createdBy) { %>
+          <div class="yours">
+            *
+          </div>
+          <% } %>
+          <h4 class="card-title heady"><%= article.title %></h4>
+          
+        
+          <div class="card-subtitle text-muted mb-2 texty">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2 texty"><%= article.description %></div>
+          <div></div>
+          <!--a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a-->
+          <!--a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a-->
+          <!--a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form-->
+        </div>
+      </div>
+    </a>
+    
+    <% }) %>
+    <br><br>
+    <div class="back_button">
+      <a href="/articles/home" class="btn btn-secondary">Home</a>
+  
+    </div>
+  </div>
+  
+</body>
+</html>

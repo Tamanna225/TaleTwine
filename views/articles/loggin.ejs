@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl-pnT-qFrQZdHDGKb0QSPkuHv6goms3Wdvg&s");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        /*color: white;*/
+        color: rgba(255, 255, 255, 0.86);
+        font-family: 'cursive', cursive;
+        height: 97vh;
+        }
+        .heading{
+            font-size: 55px;
+            margin-top: 70px;
+            font-weight: bold;
+            color: white;
+           
+        }
+      .login-form {
+        width: 400px;
+        height: auto;
+        margin: 1rem auto;
+      }
+
+      .input-group {
+        width: 100%;
+        
+      }
+
+      .input-group label {
+        display: block;
+      }
+
+      .input-group input {
+        width: 100%;
+      }
+
+      button {
+        padding: 10px 17px;
+        margin-top: 1rem;
+        font-size: 1rem;
+        background: #019cf6f7;
+        border: 1px solid #333;
+        cursor: pointer;
+        border-radius: 6px;
+
+      }
+      button:hover{
+        transform: scale(1.05);
+      }
+      #email,#password{
+        height: 60px;
+        background-color: rgba(60, 63, 63, 0.319);
+        color: white;
+        border: 2px solid white;
+        border-radius: 10px;
+        font-size: 20px;
+      }
+      #registeration{
+        float: right;
+      }
+      .button_reg{
+        background: #0ab145c1;
+        width: 400px;
+        height: 40px;
+        text-align: center;
+        border-radius: 5px;
+        padding-top: 20px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-form">
+     <div class = "heading">
+      <h1>Login</h1>
+      </div>
+      <form action="/articles/loggin" method="POST">
+        <div class="input-group">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <br>
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <button>Login</button>
+      </form>
+      <br>
+      <hr>
+      <br>
+      
+      <a href="/articles/signup" id="registeration">
+        <div class="button_reg">Register</div></a>
+    
+</div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stories</title>
+</head>
+<style>
+  body{
+    background-color: black;
+    color: azure;
+    background-image: url("https://img.freepik.com/free-photo/black-textured-background_24972-764.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-family: 'cursive', cursive;
+
+  }
+  .heading{
+    font-size: 65px;
+    font-weight: bold;
+    margin-top: 30px;
+    color: white;
+  }
+  #description,#title{
+    background-color: rgba(31, 33, 33, 0.319);
+    color: white;
+  }
+  #markdown{
+    height: 300px;
+    background-color: rgba(31, 33, 33, 0.319);
+    color: white;
+  }
+</style>
+<body>
+  <div class="container">
+    <h1 class="mb-4 heading">Edit Story</h1>
+
+    <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
+      <%- include('form') %>
+    </form>
+  </div>
+</body>
+</html>

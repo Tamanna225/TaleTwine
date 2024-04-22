@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stories</title>
+  <style>
+    body{
+      background-image: url("https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMThiYXRjaDcta2F0aWUtNDNhLWpvYjU5Ny5qcGc.jpg");
+      background-size: 100%;
+     /* background-repeat: no-repeat;*/
+      height:100vh;
+      /*color: white;*/
+      color: rgba(255, 255, 255, 0.86);
+      font-family: 'cursive', cursive;
+    }
+    .buttons{
+      float: right;
+    }
+    .container{
+      margin-top: 80px;
+    }
+    .heading{
+      font-size: 80px;
+      font-weight: bold;
+      color: white;
+    }
+    .content{
+      font-size: 30px;
+    }
+    .back{
+      margin-top: 60px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class = "story">
+    <h1 class="mb-1 heading"><%= article.title %></h1>
+    <% if (currentUserEmail === article.createdBy) { %>
+    <div class = "buttons">
+      <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+          <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+    </div>
+    <% } %>
+    <div class="text-muted mb-2">
+      <%= article.createdAt.toLocaleDateString() %>
+    </div>
+   <br>
+    <div class="content">
+      <%- article.sanitizedHtml %>
+    </div>
+    </div>
+    <div class="back">
+    <a href="/articles/index" class="btn btn-secondary">All Stories</a>
+  </div>
+  </div>
+</body>
+</html>
